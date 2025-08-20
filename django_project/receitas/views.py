@@ -3,6 +3,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse('<h1>oi</h1>')
+    # usando render para renderizar o arquivo html
+    return render(request,
+                  'index.html')
 
-# Create your views here.
+def receita(request):
+    return render(request,
+                  'receita.html')

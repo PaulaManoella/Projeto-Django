@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -56,7 +57,8 @@ ROOT_URLCONF = 'aluraproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # passando os o caminho dos templates do meu projeto
+        'DIRS': [os.path.join(BASE_DIR, 'receitas/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -116,6 +118,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+# configuração de arquivos estaticos como CSS e JS 
+
+# caminho dos arquivos estatico
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# pasta static do projeto (aluraproject)
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'aluraproject/static')]
 STATIC_URL = 'static/'
 
 # Default primary key field type
